@@ -1,5 +1,56 @@
 # sql-challenge-JM
 
+![ERD.png](ERD.png)
+
+
+
+
+
+#Table schema
+
+departments
+-
+dept_no string PK FK >- dept_manager.dept_no
+dept_name string
+
+dept_emp
+-
+dept_no string
+emp_no int FK >- employees.emp_no
+
+
+dept_manager
+-
+dept_no string FK >- dept_emp.dept_no
+emp_no int
+
+employees
+-
+emp_no int PK FK >- salaries.emp_no
+title_id string FK >- titles.title_id
+birth_date string
+first_name string
+last_name string
+sex string
+hire_date string
+
+salaries
+-
+emp_no int
+salary int
+
+titles
+-
+title_id string
+title string
+
+
+
+
+
+
+
+
 --#1 List the following details of each employee: employee number, last name, first name, sex, and salary.
 Select e.emp_no,
 	e.last_name,
